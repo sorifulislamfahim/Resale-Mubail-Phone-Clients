@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
-import Blog from "../../Pages/Blog/Blog";
+import Blogs from "../../Pages/Blog/Blogs";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 
 const router = createBrowserRouter([
@@ -14,11 +15,12 @@ const router = createBrowserRouter([
             },
             {
                 path:'/blog', 
-                element: <Blog></Blog>
+                element: <Blogs></Blogs>
             } 
 
-        ]
-    }
+        ], 
+        errorElement: <ErrorPage></ErrorPage>
+    }, 
 ]); 
 
 export default router;
