@@ -20,13 +20,9 @@ const router = createBrowserRouter([
             }, 
             {
                 path: '/catagory/:id', 
-                element: <CatagoryItems></CatagoryItems>
-            }, 
-            // {
-            //     path: '/catagoryitems/:id', 
-            //     element: 
-            // },  
-
+                element: <CatagoryItems></CatagoryItems> ,
+                loader: ({params}) => fetch(`http://localhost:5000/catagorys/${params.id}`)
+            }
         ], 
         errorElement: <ErrorPage></ErrorPage>
     }, 
