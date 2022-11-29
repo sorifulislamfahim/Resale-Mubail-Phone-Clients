@@ -5,6 +5,7 @@ import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import CatagoryItems from "../../Pages/Home/CatagoryItems/CatagoryItems";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/SignUpPages/LogIn/Login";
+import Register from "../../Pages/SignUpPages/Register/Register";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: '/login', 
                 element: <Login></Login>
+            }, 
+            {
+                path: '/register', 
+                element: <Register></Register>
             }
         ], 
         errorElement: <ErrorPage></ErrorPage>
