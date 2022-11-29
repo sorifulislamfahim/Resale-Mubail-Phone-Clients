@@ -4,6 +4,7 @@ import Blogs from "../../Pages/Blog/Blogs";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import CatagoryItems from "../../Pages/Home/CatagoryItems/CatagoryItems";
 import Home from "../../Pages/Home/Home/Home";
+import Login from "../../Pages/SignUpPages/LogIn/Login";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
                 path: '/catagory/:id', 
                 element: <CatagoryItems></CatagoryItems> ,
                 loader: ({params}) => fetch(`http://localhost:5000/catagorys/${params.id}`)
+            }, 
+            {
+                path: '/login', 
+                element: <Login></Login>
             }
         ], 
         errorElement: <ErrorPage></ErrorPage>

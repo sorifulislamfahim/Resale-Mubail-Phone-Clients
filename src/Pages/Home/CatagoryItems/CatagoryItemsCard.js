@@ -23,7 +23,7 @@ const CatagoryItemsCard = ({ news }) => {
                 </div>
                 <div className="card-actions justify-between my-10">
                     <h2 className='text-2xl font-serif'>{author.published_date}</h2>
-                    <button className="btn btn-primary">Book Now</button>
+                    <label htmlFor="booking-modal" className="btn">Book Now</label>
                 </div>
             </div>
         </div>
