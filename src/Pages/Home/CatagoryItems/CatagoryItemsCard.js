@@ -1,7 +1,7 @@
 import React from 'react';
 
-const CatagoryItemsCard = ({ news }) => {
-    const { name, uses, price, location, image_url, details, title, author } = news;
+const CatagoryItemsCard = ({  product, setProduct }) => {
+    const { name, uses, price, location, image_url, details, title, author } = product;
     return (
         <div className="card lg:card-side bg-orange-50 shadow-xl p-7">
             <figure className='lg:w-1/2 lg:p-20'><img src={image_url} alt="Album" /></figure>
@@ -23,7 +23,9 @@ const CatagoryItemsCard = ({ news }) => {
                 </div>
                 <div className="card-actions justify-between my-10">
                     <h2 className='text-2xl font-serif'>{author.published_date}</h2>
-                    <label htmlFor="booking-modal" className="btn">Book Now</label>
+                    <label htmlFor="my-modal-3"
+                        onClick={() => setProduct(product)}
+                        className="btn btn-primary">Book Now</label>
                 </div>
             </div>
         </div>

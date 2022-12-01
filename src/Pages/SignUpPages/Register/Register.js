@@ -6,24 +6,26 @@ import toast from 'react-hot-toast';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const {createUser, updateUser} = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
 
 
     const handleRegister = data => {
-        console.log(data);
+
         createUser(data.email, data.password)
-        .then(result => {
-            const user = result.user;
-            console.log(user)
-            toast.success('User Created Successfully')
-            const userInfo = {
-                displayName: data.name
-            }
-            updateUser(userInfo)
-            .then(() => {})
-            .catch(error => console.error(error))
-        })
-        .catch(error => console.error(error));
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                toast.success('User Created Successfully')
+                const userInfo = {
+                    displayName: data.name
+                }
+                // console.log(userInfo)
+                updateUser(userInfo)
+                    .then(() => { 
+
+                    })
+            })
+            .catch(error => console.error(error));
     }
 
 
@@ -36,10 +38,10 @@ const Register = () => {
                     <div className="form-control w-full max-w-xs">
                         <label className="label"><span className="label-text">Name</span></label>
                         <input type="text"
-                        {...register("name", {
-                            required: true
-                        })} 
-                         className="input input-bordered w-full max-w-xs" />
+                            {...register("name", {
+                                required: true
+                            })}
+                            className="input input-bordered w-full max-w-xs" />
                     </div>
 
                     <div className="form-control w-full max-w-xs">
@@ -49,19 +51,19 @@ const Register = () => {
                                 required: "Email Address is Required"
                             })}
                             className="input input-bordered w-full max-w-xs" />
-                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
+                        {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                     </div>
 
                     <div className="form-control w-full max-w-xs">
                         <label className="label"><span className="label-text">PassWord</span></label>
                         <input type="password"
                             {...register("password", {
-                                required: "PassWord is Required", 
-                                minLength: {value: 6, message: "Password must be 6 currecter or longer"}
-                                
+                                required: "PassWord is Required",
+                                minLength: { value: 6, message: "Password must be 6 currecter or longer" }
+
                             })}
                             className="input input-bordered w-full max-w-xs" />
-                            {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
+                        {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                     </div>
                     <input className='btn w-full my-5' value='Register' type="submit" />
                 </form>

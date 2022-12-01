@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import BookingModal from '../../BookingModal/BookingModal';
 import CatagoryItemsCard from './CatagoryItemsCard';
 
 const CatagoryItems = () => {
-    const newsData = useLoaderData();
-    
+    const products = useLoaderData();
+    const [product, setProduct] = useState(null);
+
     return (
         <div>
             <div className='gap-10 grid grid-cols-1 my-20'>
                 {
-                    newsData.map(news => <CatagoryItemsCard
-                        key={news._id}
-                        news={news}
+                    products.map(product => <CatagoryItemsCard
+
+                        key={product._id}
+                        product={product}
+                        setProduct={setProduct}
                     ></CatagoryItemsCard>)
                 }
             </div>
-            <BookingModal></BookingModal>
+            {product &&
+                <BookingModal
+                    product={product}
+                ></BookingModal>
+            }
         </div>
     );
 };

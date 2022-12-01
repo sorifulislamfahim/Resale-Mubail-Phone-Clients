@@ -6,36 +6,37 @@ import CatagoryItems from "../../Pages/Home/CatagoryItems/CatagoryItems";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/SignUpPages/LogIn/Login";
 import Register from "../../Pages/SignUpPages/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
-        path: '/', 
-        element: <Main></Main>, 
+        path: '/',
+        element: <Main></Main>,
         children: [
             {
-                path: '/', 
+                path: '/',
                 element: <Home></Home>
             },
             {
-                path:'/blog', 
+                path: '/blog',
                 element: <Blogs></Blogs>
-            }, 
+            },
             {
-                path: '/catagory/:id', 
-                element: <CatagoryItems></CatagoryItems> ,
-                loader: ({params}) => fetch(`http://localhost:5000/catagorys/${params.id}`)
-            }, 
+                path: '/catagory/:id',
+                element: <PrivateRoute><CatagoryItems></CatagoryItems></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/catagorys/${params.id}`)
+            },
             {
-                path: '/login', 
+                path: '/login',
                 element: <Login></Login>
-            }, 
+            },
             {
-                path: '/register', 
+                path: '/register',
                 element: <Register></Register>
             }
-        ], 
+        ],
         errorElement: <ErrorPage></ErrorPage>
-    }, 
-]); 
+    },
+]);
 
 export default router;
