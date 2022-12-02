@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Blogs from "../../Pages/Blog/Blogs";
+import Dashbord from "../../Pages/Dashbord/Dashbord/Dashbord";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import CatagoryItems from "../../Pages/Home/CatagoryItems/CatagoryItems";
 import Home from "../../Pages/Home/Home/Home";
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         ],
         errorElement: <ErrorPage></ErrorPage>
     },
+    {
+        path: '/dashbord', 
+        element: <PrivateRoute><Dashbord></Dashbord></PrivateRoute>
+    }
 ]);
 
 export default router;
