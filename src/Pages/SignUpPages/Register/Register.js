@@ -3,6 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../context/AuthProvider';
 import toast from 'react-hot-toast';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -17,13 +18,13 @@ const Register = () => {
                 const user = result.user;
                 console.log(user)
                 toast.success('User Created Successfully')
-               navigate('/');
+                navigate('/');
                 const userInfo = {
                     displayName: data.name
                 }
                 // console.log(userInfo)
                 updateUser(userInfo)
-                    .then(() => { 
+                    .then(() => {
 
                     })
             })
@@ -71,7 +72,7 @@ const Register = () => {
                 </form>
                 <p className='text-center'>Alredy have an acount <Link to='/login' className='text-red-500 font-semibold'>Please LogIn</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>Continew With Google</button>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );

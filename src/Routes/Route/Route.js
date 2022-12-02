@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {
                 path: '/catagory/:id',
                 element: <PrivateRoute><CatagoryItems></CatagoryItems></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/catagorys/${params.id}`)
+                loader: ({ params }) => fetch(`https://resale-mubail-phones-server.vercel.app/catagorys/${params.id}`)
             },
             {
                 path: '/login',

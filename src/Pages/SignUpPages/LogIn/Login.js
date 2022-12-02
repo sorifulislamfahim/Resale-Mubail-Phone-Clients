@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -23,7 +24,7 @@ const Login = () => {
                 }
                 console.log(currentUser)
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://resale-mubail-phones-server.vercel.app/jwt', {
                     method: 'POST', 
                     headers: {
                         'content-type' : 'application/json'
@@ -79,7 +80,7 @@ const Login = () => {
                 </form>
                 <p className='text-center'>New To Website <Link to='/register' className='text-red-500 font-semibold'>Create a new acount</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full '>Continew With Google</button>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );
